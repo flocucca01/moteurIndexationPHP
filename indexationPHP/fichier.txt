@@ -1,0 +1,1 @@
+Dans ce travail, vous allez devoir réaliser un moteur d'indexation, c'est une sorte de moteur de recherche très simple.
