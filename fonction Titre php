@@ -1,0 +1,23 @@
+Function leTitre($url)
+{
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$raw = curl_exec($ch);
+	curl_close($ch);
+	
+	$html = new DOMDocument();
+	@$html->loadHTML($raw);
+	$xpath = new DOMXPath($html);
+	$domTitle = $xpath->query("//title");
+	
+	$i = 0;
+	foreach ($domTitle as $exemple) {
+	   $result[$i++] = $exemple->nodeValue;
+	
+	   foreach($result as $contenu)
+	   {
+		   echo $contenu. "<br>";
+	   }
+	} 
+}
