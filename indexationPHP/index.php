@@ -1,32 +1,24 @@
-<?php ?>
+<?php 
+include 'functions.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-	<title>Compteage</title>
+	<title>Index</title>
 </head>
 <body>
-	<?php
 
-		$termes = implode(' ', file('fichier.txt'));
-		$termes = strtolower($termes);
+	<form method="get" action="traitement.php">
+	<p>
+		<input type="text" name="lien" /><br />
+		<input type="radio" name="fonction" value="fichier" id="fichier" />Fichier local<br />
+       	<input type="radio" name="fonction" value="page_web" id="page_web" />URL Page web<br />
+		<input type="submit">
+	</p>
+	</form>
 
-		$words = array_count_values(str_word_count($termes, 1, ''));
-
-		// $words = arsort($words);
-
-		arsort($words);
-		foreach ($words as $key => $value)
-		{
-			if (strlen($key) >= 3)
-			{
-				echo $key, " => " , $value, "</br>";
-			}
-
-		}
-
-	?>
 </body>
 </html>
 <?php ?>
